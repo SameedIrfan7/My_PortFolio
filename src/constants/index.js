@@ -141,6 +141,14 @@ export const experiences = [
     },
 ];
 
+export const gitLink=[
+    {
+        name: 'GitHub',
+        iconUrl: github,
+        link: 'https://github.com/SameedIrfan7',
+    },
+];
+
 export const socialLinks = [
     {
         name: 'Contact',

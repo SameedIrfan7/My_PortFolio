@@ -31,9 +31,9 @@ export function  Island({
   // Use a ref for the last mouse x position
   const lastX = useRef(0);
   // Use a ref for rotation speed
-  const rotationSpeed = useRef(0);
+  const rotationSpeed = useRef(0.2);
   // Define a damping factor to control rotation damping
-  const dampingFactor = 0.95;
+  const dampingFactor = 0.9;
 
   // Handle pointer (mouse or touch) down event
   const handlePointerDown = (event) => {
