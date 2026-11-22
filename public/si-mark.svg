@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 44">
+  <rect x="1" y="1" width="66" height="42" rx="10" fill="#202020" stroke="#454545"/>
+  <path
+    d="M30 12H18a5 5 0 0 0-5 5v1a4 4 0 0 0 4 4h10a4 4 0 0 1 4 4v1a5 5 0 0 1-5 5H13"
+    fill="none"
+    stroke="#F4F4F4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="3.5"
+  />
+  <path
+    d="M41 12h12M47 12v20M41 32h12"
+    fill="none"
+    stroke="#E10600"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="3.5"
+  />
+  <circle cx="59" cy="12" r="1.5" fill="#E10600"/>
+</svg>
