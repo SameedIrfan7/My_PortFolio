@@ -26,6 +26,12 @@ import arrow from './arrow.svg'
 import contact from './contact.svg'
 import soundon from './soundon.png'
 import soundoff from './soundoff.png'
+import python from './python.svg'
+import docker from './docker.svg'
+import sql from './sql.svg'
+import java from './java.svg'
+import claude from './claude.svg'
+import hybridnotes from './hybridnotes.svg'
 
 export {
     css,
@@ -55,5 +61,11 @@ export {
     arrow,
     contact,
     soundon,
-    soundoff
+    soundoff,
+    python,
+    docker,
+    sql,
+    java,
+    claude,
+    hybridnotes
 }

@@ -1,0 +1,91 @@
+SAMEED IRFAN
+Software Engineer | Data Automation, Full-Stack & AI Applications
+Bengaluru, India | sameedirfan7@gmail.com | +91 911-044-3938 | linkedin.com/in/sameedirfan7 |
+github.com/SameedIrfan7
+
+SUMMARY
+Software engineer with 20 months at Cognizant on the Sanofi Identity & Access Management Operations account, building
+automation that replaces slow, error-prone manual checks. Built a reconciliation tool that cut a 60–90 minute daily check across
+4,000+ records to under 30 seconds, adopted by the operations team from day one. Strong in Python, JavaScript, Java and SQL;
+Claude Certified Architect. Now moving into data and AI engineering with PySpark pipelines for distributed and cloud platforms.
+
+TECHNICAL SKILLS
+Languages: Python, Java, JavaScript, SQL, Shell, VBScript/VBA
+Data Engineering: PySpark (in progress), data reconciliation and validation, data quality checks, ETL-style transformation, batch
+processing, audit trails
+AI & ML: LLM APIs (OpenAI, Claude), prompt engineering, Scikit-Learn, TensorFlow (basics)
+Backend & Databases: Flask, Django, Spring Boot, Node.js, REST APIs, MySQL, PostgreSQL (Supabase), SQLite
+Frontend: React.js, HTML5, CSS, responsive design
+Automation & DevOps: Google Apps Script, Power Automate, Outlook COM, SheetJS, Git, GitHub Actions, CI/CD, Jenkins, Docker
+(basics)
+
+WORK EXPERIENCE
+Cognizant | Client: Sanofi, Identity & Access Management Operations
+Senior System Engineer
+Junior System Engineer
+Programmer Analyst Trainee
+Intern
+
+Bengaluru, India
+Jul 2026 – Present
+Jan 2026 – Jul 2026
+Jul 2025 – Dec 2025
+Feb 2025 – Jul 2025
+
+• Cut a 60–90 minute daily manual check to under 30 seconds (~95% faster) by building a reconciliation tool (HTML5,
+JavaScript, SheetJS) that cross-checks 4 Excel reports and 4,000+ resource records and flags discrepancies. Adopted by the
+operations team from day one.
+• Automated follow-up emails with VBScript and Outlook COM: groups 4,000+ records by line manager and generates readyto-send HTML drafts with the right recipients and data tables.
+• Designed a two-layer tracker (raw log and confirmed records) with composite-key matching across 8 regional delivery
+centres, bringing missed access revocations to near zero.
+• Built Google Apps Script automation that compares source files, detects resources who lost project allocation, and sends
+notifications automatically. Extended it to offboarding alerts for physical-security teams at every Indian ODC office; now part
+of the Aegis platform.
+• Added a cumulative daily audit trail for compliance reporting, built Teams reminder flows for access-KPI tracking, and
+authored the offboarding SOP the team uses as its reference.
+
+PROJECTS
+Aegis – Operations & Access Management Platform | Cognizant, Sanofi account
+Google Apps Script, JavaScript, HTML/CSS, Google Sheets, Drive, Gmail, SheetJS
+• Built an internal web platform that unifies spreadsheet- and email-driven onboarding, offboarding and allocation monitoring
+into one app.
+• Automated daily allocation-report comparison to find resources removed from India ODC allocations, with location-based
+routing of access notifications and an approval step before anything is sent.
+• Engineered offboarding workflows with scheduled runs, country/location checks, duplicate-send protection and catch-up
+runs, backed by delivery ledgers and audit logs.
+• Delivered an operations dashboard (queues, run history, schedules, health checks, logs) with configurable email templates,
+recipient routing, role-based access, approval pages and retries for failed sends.
+• Added a guided onboarding module covering request intake, approvals, mandatory-training checks and tracking (tested
+locally; deployment pending).
+ReconFlow – Data Reconciliation Pipeline | In Progress
+PySpark, Python, YAML, pytest, GitHub Actions
+• Building a config-driven PySpark pipeline that reconciles multiple synthetic data sources (target: 1M+ rows) and flags
+mismatches such as missing allocations and orphaned access records, based on the reconciliation logic built at work.
+• Planned: YAML-defined rules, data quality checks with quarantine output, automated tests with CI, and LLM-generated
+plain-language explanations of flagged records.
+
+NurQuran – Full-Stack Progressive Web App | nurquran.vercel.app
+React.js, Supabase (PostgreSQL, Auth), Web Audio API, Vercel
+• Built from scratch: 114 Surahs in Arabic with 8-language translations and audio from 5 reciters, deployed as an installable,
+SEO-optimised, responsive PWA.
+• Implemented email and Google OAuth sign-in, cloud-synced progress, a real-time leaderboard with admin panel, and an inbrowser audio noise-removal pipeline.
+Other Projects
+• AI-Driven Crop Management System (Python, Flask, TensorFlow, Scikit-Learn): led a 4-person team building crop-health and
+yield prediction models on live WeatherAPI and SoilGrids data.
+• Autonomous Content Agent (Python, YouTube Data API, Instagram Graph API): end-to-end pipeline that generates, renders
+and publishes short-form video with no manual steps; ported a Linux-only codebase to Windows.
+• Summarize-AI (React.js, OpenAI API): fetches article content and returns an AI-generated summary. Event Management
+System (Spring Boot, MySQL): dual-role registration platform with Razorpay payments; final-year capstone.
+
+EDUCATION
+B.E. in Information Science and Engineering, PES College of Engineering, Mandya | CGPA: 7.6
+
+2021 – 2025
+
+CERTIFICATIONS & TRAINING
+• Claude Certified Architect – Foundations, Anthropic
+• DevOps Foundation Training, HCL Software (Jan–Mar 2024): CI/CD, Git, GitHub Actions, build automation
+• Frontend Development Intern, IBM SkillsBuild & CSRBOX (Jun–Jul 2023) | Prompt Engineering for General AI, LinkedIn
+Learning
+
+
