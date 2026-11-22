@@ -51,10 +51,10 @@ function StarField(props) {
 
 // ─── Typewriter Phrases for Subtitle ─────────────────────────────────────────
 const PHRASES = [
-  "Application Ops Engineer @ Cognizant",
+  "End-to-end products · Frontend to backend",
+  "AI/ML · LLM integration · Data systems",
   "Claude Certified Architect · Anthropic",
-  "Enterprise Automation: Cut 90-min checks to <30 seconds",
-  "Full-Stack & AI: Python · PySpark · React · Node · LLM APIs",
+  "Enterprise automation: 90-minute checks to under 30 seconds",
 ];
 
 // ─── GitHub Icon ─────────────────────────────────────────────────────────────
@@ -199,7 +199,7 @@ const Home = () => {
           {/* ── LEFT SIDE — Unanim.studio Swiss Grid & Dynamic Typography ── */}
           <div className="flex-1 flex flex-col gap-4 md:gap-5 max-w-2xl relative">
             {/* Unanim.studio Architectural Grid Crosshairs & Live Telemetry Strip */}
-            <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-white/[0.08] text-[11px] font-mono text-zinc-400">
+            <div className="flex flex-wrap items-center gap-3 pb-3 border-b border-white/[0.08] text-[11px] font-mono text-zinc-400">
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E10600] animate-ping" />
                 <span className="text-white font-medium tracking-wider">
@@ -208,22 +208,13 @@ const Home = () => {
                 <span className="text-zinc-600">·</span>
                 <span className="text-zinc-400 hidden sm:inline">12°58'N 77°35'E</span>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span className="text-emerald-400 font-semibold tracking-wider uppercase text-[10px]">
-                  AVAILABLE FOR ROLES
-                </span>
-              </div>
             </div>
 
             {/* Signal Red Role Line */}
             <span
               className="flex items-center gap-2 pt-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-[#E10600] sm:text-xs md:tracking-[0.22em]"
             >
-              <span className="md:hidden">Application Ops Engineer</span>
-              <span className="hidden md:inline">
-                Application Ops Engineer · Enterprise Data &amp; AI
-              </span>
+              Full-Stack Software Engineer
             </span>
 
             {/* Name types once and stays visible. */}
