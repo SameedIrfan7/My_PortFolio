@@ -8,7 +8,7 @@ import birdScene from "../assets/3d/bird.glb";
 export function Bird({
   scale = [0.003, 0.003, 0.003],
   position = [-6, 2, 0],
-  speed = 0.018,
+  speed = 1.2,
   minX = -9,
   maxX = 9,
   ...props
@@ -24,29 +24,17 @@ export function Bird({
     }
   }, [actions]);
 
-  useFrame(({ clock, camera }) => {
+  useFrame(({ clock, camera }, delta) => {
     if (!birdRef.current) return;
 
-    // Simulate graceful flight with sinusoidal altitude bobbing
     birdRef.current.position.y = Math.sin(clock.elapsedTime * 1.8) * 0.35 + position[1];
 
     const boundMax = camera.position.x + maxX;
     const boundMin = camera.position.x + minX;
 
-    // Check bounds & turn 180 degrees
+    birdRef.current.position.x += speed * delta;
     if (birdRef.current.position.x > boundMax) {
-      birdRef.current.rotation.y = Math.PI;
-    } else if (birdRef.current.position.x < boundMin) {
-      birdRef.current.rotation.y = 0;
-    }
-
-    // Dynamic travel speed across the viewport
-    if (birdRef.current.rotation.y === 0) {
-      birdRef.current.position.x += speed;
-      birdRef.current.position.z -= speed * 0.25;
-    } else {
-      birdRef.current.position.x -= speed;
-      birdRef.current.position.z += speed * 0.25;
+      birdRef.current.position.x = boundMin;
     }
   });
 

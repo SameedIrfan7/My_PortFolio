@@ -1,7 +1,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Suspense, useEffect, useRef, useState, useMemo } from "react";
 import { Points, PointMaterial } from "@react-three/drei";
-import { Link } from "react-router-dom";
 import sakura from "../assets/sakura.mp3";
 import { soundoff, soundon } from "../assets/icons";
 import { Bird } from "../models";
@@ -57,24 +56,6 @@ const PHRASES = [
   "Enterprise automation: 90-minute checks to under 30 seconds",
 ];
 
-// ─── GitHub Icon ─────────────────────────────────────────────────────────────
-function GitHubIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" aria-hidden="true">
-      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
-    </svg>
-  );
-}
-
-// ─── LinkedIn Icon ────────────────────────────────────────────────────────────
-function LinkedInIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" aria-hidden="true">
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-    </svg>
-  );
-}
-
 // ─── Main Home Component ──────────────────────────────────────────────────────
 const Home = () => {
   const audioRef = useRef(new Audio(sakura));
@@ -85,15 +66,28 @@ const Home = () => {
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [fade, setFade] = useState(true);
   const [liveTime, setLiveTime] = useState("");
-  const [isMobileLayout, setIsMobileLayout] = useState(false);
+  const [isCompactLayout, setIsCompactLayout] = useState(() =>
+    window.matchMedia("(max-width: 1279px)").matches
+  );
+  const [isMobileViewport, setIsMobileViewport] = useState(() =>
+    window.matchMedia("(max-width: 767px)").matches
+  );
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 767px)");
-    const updateLayout = () => setIsMobileLayout(mediaQuery.matches);
+    const compactQuery = window.matchMedia("(max-width: 1279px)");
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
+    const updateLayout = () => {
+      setIsCompactLayout(compactQuery.matches);
+      setIsMobileViewport(mobileQuery.matches);
+    };
 
     updateLayout();
-    mediaQuery.addEventListener("change", updateLayout);
-    return () => mediaQuery.removeEventListener("change", updateLayout);
+    compactQuery.addEventListener("change", updateLayout);
+    mobileQuery.addEventListener("change", updateLayout);
+    return () => {
+      compactQuery.removeEventListener("change", updateLayout);
+      mobileQuery.removeEventListener("change", updateLayout);
+    };
   }, []);
 
   // Live real-time clock for Unanim.studio Swiss telemetry
@@ -173,11 +167,11 @@ const Home = () => {
             <hemisphereLight skyColor="#C0C0C0" groundColor="#181818" intensity={0.6} />
             <StarField />
             <Bird
-              position={[-7, 2.2, -1]}
-              scale={[0.0032, 0.0032, 0.0032]}
-              speed={0.016}
-              minX={-10}
-              maxX={-1.5}
+              position={[-6, isMobileViewport ? 2.8 : 2.6, -1]}
+              scale={isMobileViewport ? [0.00065, 0.00065, 0.00065] : [0.002, 0.002, 0.002]}
+              speed={1.2}
+              minX={-6}
+              maxX={6}
             />
           </Suspense>
         </Canvas>
@@ -193,8 +187,8 @@ const Home = () => {
       />
 
       {/* ── Hero Content Overlay ── */}
-      <div className="relative z-10 flex min-h-screen items-center px-6 py-20 md:absolute md:inset-0 md:px-16 md:py-0 lg:px-24">
-        <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10">
+      <div className="relative z-10 flex min-h-screen items-center px-6 py-20 xl:absolute xl:inset-0 xl:px-16 xl:py-0 2xl:px-24">
+        <div className="w-full max-w-7xl mx-auto flex flex-col xl:flex-row items-center justify-between gap-6 xl:gap-10">
 
           {/* ── LEFT SIDE — Unanim.studio Swiss Grid & Dynamic Typography ── */}
           <div className="flex-1 flex flex-col gap-4 md:gap-5 max-w-2xl relative">
@@ -212,15 +206,15 @@ const Home = () => {
 
             {/* Signal Red Role Line */}
             <span
-              className="flex items-center gap-2 pt-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-[#E10600] sm:text-xs md:tracking-[0.22em]"
+              className="flex items-center gap-2 pt-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-[#E10600] sm:text-xs xl:tracking-[0.22em]"
             >
               Full-Stack Software Engineer
             </span>
 
             {/* Name types once and stays visible. */}
-            <div className="leading-none select-none min-h-[140px] md:min-h-[190px] flex flex-col justify-center">
+            <div className="leading-none select-none min-h-[140px] xl:min-h-[190px] flex flex-col justify-center">
               <div className="flex items-center">
-                <h1 className="text-6xl sm:text-7xl md:text-9xl font-black text-white block" style={{ lineHeight: 0.95, letterSpacing: "-0.02em" }}>
+                <h1 className="text-6xl sm:text-7xl xl:text-9xl font-black text-white block" style={{ lineHeight: 0.95, letterSpacing: "-0.02em" }}>
                   {line1 || "\u00A0"}
                 </h1>
                 {nameText.length <= 6 && (
@@ -228,7 +222,7 @@ const Home = () => {
                 )}
               </div>
               <div className="flex items-center">
-                <h1 className="text-6xl sm:text-7xl md:text-9xl font-black block bg-gradient-to-r from-white via-[#C0C0C0] to-[#E10600] bg-clip-text text-transparent" style={{ lineHeight: 0.95, letterSpacing: "-0.02em" }}>
+                <h1 className="text-6xl sm:text-7xl xl:text-9xl font-black block bg-gradient-to-r from-white via-[#C0C0C0] to-[#E10600] bg-clip-text text-transparent" style={{ lineHeight: 0.95, letterSpacing: "-0.02em" }}>
                   {line2 || (nameText.length <= 6 ? "" : "\u00A0")}
                 </h1>
                 {nameText.length > 6 && nameText.length < FULL_NAME.length && (
@@ -237,8 +231,8 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="flex w-full justify-center md:hidden">
-              {isMobileLayout && <PixelPortrait compact />}
+            <div className="flex w-full justify-center xl:hidden">
+              {isCompactLayout && <PixelPortrait compact />}
             </div>
 
             {/* Subtitle Typewriter */}
@@ -283,32 +277,11 @@ const Home = () => {
               </a>
             </div>
 
-            {/* Social Icons */}
-            <div className="flex gap-4 mt-1">
-              <a
-                href="https://github.com/SameedIrfan7"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#C0C0C0] hover:text-[#E10600] transition-colors duration-300"
-                aria-label="GitHub"
-              >
-                <GitHubIcon />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/sameed-irfan-7b767622b/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#C0C0C0] hover:text-[#E10600] transition-colors duration-300"
-                aria-label="LinkedIn"
-              >
-                <LinkedInIcon />
-              </a>
-            </div>
           </div>
 
           {/* ── RIGHT SIDE — Pixel Portrait Assembly Animation ── */}
-          <div className="hidden md:flex flex-shrink-0 items-center justify-center">
-            {!isMobileLayout && <PixelPortrait />}
+          <div className="hidden xl:flex flex-shrink-0 items-center justify-center">
+            {!isCompactLayout && <PixelPortrait />}
           </div>
         </div>
       </div>

@@ -6,8 +6,6 @@ import {
   Navbar,
   CTA,
   CustomCursor,
-  CinematicTransition,
-  ScrollRail,
 } from "./components";
 import { About, Contact, Home, Projects } from "./pages";
 import FlightWorld from "./components/FlightWorld";
@@ -40,62 +38,30 @@ const SinglePagePortfolio = () => {
     <div className="relative overflow-x-hidden">
       <FlightWorld />
       <div className="relative z-10">
-        {/* ── Production Portugal Inspired Custom Cursor ── */}
         <CustomCursor />
 
-      {/* ── Yoyu.design Inspired Vertical Pixel Progress Rail ── */}
-      <ScrollRail />
+        <Navbar />
+        <ScrollHandler />
 
-      {/* ── Fixed Glass Header ── */}
-      <Navbar />
-      <ScrollHandler />
+        <Home />
 
-      {/* ── 1. Hero Section (Unanim.studio Swiss Grid + Typewriter + Pixel Portrait) ── */}
-      <Home />
+        <div className="bg-transparent">
+          <About hideCTA={true} />
+        </div>
 
-      {/* ── Cinematic Transition: Hero -> About ── */}
-      <CinematicTransition
-        sectionNum="02"
-        title="EXPERIENCE & CORE ARCHITECTURE"
-        tickerText="COGNIZANT APPLICATION OPS // 4,000+ ENTERPRISE RECORDS <30s // ~95% FASTER AUTOMATION // CLAUDE CERTIFIED ARCHITECT"
-      />
+        <div className="bg-transparent">
+          <Projects hideCTA={true} />
+        </div>
 
-      {/* ── 2. About & Experience Section ── */}
-      <div className="bg-transparent">
-        <About hideCTA={true} />
-      </div>
+        <div className="max-w-6xl mx-auto px-6 md:px-12 py-8">
+          <CTA />
+        </div>
 
-      {/* ── Cinematic Transition: About -> Projects ── */}
-      <CinematicTransition
-        sectionNum="03"
-        title="FEATURED PRODUCTION PLATFORMS"
-        tickerText="NAKKHIWORKS PRODUCTION // HYBRIDNOTES CLOUD // NURQURAN PWA // SUMMARIZE-AI // RECONFLOW ENTERPRISE"
-      />
+        <div className="bg-[#181818]">
+          <Contact />
+        </div>
 
-      {/* ── 3. Projects Showcase Section ── */}
-      <div className="bg-transparent">
-        <Projects hideCTA={true} />
-      </div>
-
-      {/* ── 4. Call To Action Banner ── */}
-      <div className="max-w-6xl mx-auto px-6 md:px-12 py-8">
-        <CTA />
-      </div>
-
-      {/* ── Cinematic Transition: CTA -> Contact ── */}
-      <CinematicTransition
-        sectionNum="04"
-        title="DIRECT COLLABORATION & INQUIRIES"
-        tickerText="OPEN FOR HIGH-IMPACT ROLES // APPLICATION OPS & SRE // FULL-STACK & LLM INTEGRATION // LET'S CONNECT"
-      />
-
-      {/* ── 5. Interactive 3D Contact Section ── */}
-      <div className="bg-[#181818]">
-        <Contact />
-      </div>
-
-      {/* ── 6. Footer ── */}
-      <Footer />
+        <Footer />
       </div>
     </div>
   );

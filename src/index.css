@@ -182,9 +182,10 @@ code, pre, .font-code {
   z-index: 1;
   width: inherit;
   height: inherit;
-  background-color: #242424;
+  background-color: rgba(36, 36, 36, 0.52);
   border: 1px solid #383838;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: 250ms;
   transform-style: preserve-3d;
   transform-origin: top left;
@@ -344,28 +345,6 @@ code, pre, .font-code {
     radial-gradient(circle, rgba(225, 6, 0, 0.4) 1px, transparent 1px);
   background-size: 8px 8px, 16px 16px;
   background-position: 0 0, 4px 4px;
-}
-
-/* ============================================================
-   CINEMATIC TRANSITIONS & MARQUEE (Production Portugal style)
-   ============================================================ */
-@keyframes marquee {
-  0% {
-    transform: translate3d(0%, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-.animate-marquee {
-  display: inline-flex;
-  width: max-content;
-  animation: marquee 28s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
 }
 
 /* ============================================================

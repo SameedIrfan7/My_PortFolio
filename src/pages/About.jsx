@@ -74,7 +74,7 @@ const About = ({ hideCTA = false }) => {
       <div className="pb-12">
         <div className="max-w-3xl">
           <span className="text-xs uppercase tracking-[0.25em] text-[#E10600] font-semibold font-mono">
-            02 / Experience &amp; core architecture
+            Experience &amp; core architecture
           </span>
           <h2 className="head-text mt-3 text-white">
             Systems,{" "}
@@ -123,7 +123,13 @@ const About = ({ hideCTA = false }) => {
             <div
               key={item.title}
               data-credential-index={index}
-              style={{ transitionDelay: `${index * 120}ms` }}
+              style={{
+                transitionDelay: `${index * 120}ms`,
+                background: "rgba(36, 36, 36, 0.46)",
+                borderColor: "rgba(192, 192, 192, 0.18)",
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+              }}
               className={`credential-card ${
                 index % 2 === 0 ? "credential-card-from-left" : "credential-card-from-right"
               } ${
@@ -228,15 +234,17 @@ const About = ({ hideCTA = false }) => {
                   </div>
                 }
                 contentStyle={{
-                  background: "#242424",
+                  background: "rgba(36, 36, 36, 0.46)",
                   color: "#C0C0C0",
-                  border: "1px solid rgba(192, 192, 192, 0.14)",
+                  border: "1px solid rgba(192, 192, 192, 0.2)",
                   borderBottom: `6px solid #E10600`,
                   borderRadius: "16px",
                   boxShadow: "0 8px 30px rgba(0, 0, 0, 0.35)",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
                 }}
                 contentArrowStyle={{
-                  borderRight: "7px solid #242424",
+                  borderRight: "7px solid rgba(36, 36, 36, 0.46)",
                 }}
               >
                 <div>

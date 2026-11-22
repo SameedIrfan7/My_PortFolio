@@ -83,7 +83,7 @@ const Projects = ({ hideCTA = false }) => {
         <div className="flex-1">
           <span className="text-xs uppercase tracking-[0.25em] text-[#E10600] font-semibold font-mono flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#E10600] animate-ping" />
-            03 / Selected work
+            Selected work
           </span>
           <h2 className="head-text mt-2 text-white font-space">
             Selected{" "}

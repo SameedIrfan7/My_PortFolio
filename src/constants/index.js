@@ -3,10 +3,8 @@ import {
     contact,
     css,
     git,
-    github,
     html,
     javascript,
-    linkedin,
     mongodb,
     nextjs,
     nodejs,
@@ -152,30 +150,12 @@ export const experiences = [
     },
 ];
 
-export const gitLink = [
-    {
-        name: 'GitHub',
-        iconUrl: github,
-        link: 'https://github.com/SameedIrfan7',
-    },
-];
-
-export const socialLinks = [
+export const footerLinks = [
     {
         name: 'Contact',
         iconUrl: contact,
         link: '/contact',
     },
-    {
-        name: 'GitHub',
-        iconUrl: github,
-        link: 'https://github.com/SameedIrfan7',
-    },
-    {
-        name: 'LinkedIn',
-        iconUrl: linkedin,
-        link: 'https://www.linkedin.com/in/sameed-irfan-7b767622b/',
-    }
 ];
 
 export const projects = [
